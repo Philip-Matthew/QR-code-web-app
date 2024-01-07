@@ -1,0 +1,27 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ... (other head elements) ... -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+
+    <form action="/generateQR" method="post">
+      <label for="url">Type in your URL:</label>
+      <input type="text" id="url" name="URL" required>
+      <button type="submit">Generate QR Code</button>
+    </form>
+
+    <% if (qrImage) { %>
+      <img src="<%= qrImage %>" alt="QR Code">
+      <div>
+        <a href="<%= qrImage %>" download="qrcode.png">Download QR Code</a>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>
